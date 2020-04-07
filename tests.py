@@ -14,3 +14,19 @@ class PhoneBookTest(TestCase):
         book.add_entry('João', '(11) 1234 4321')
 
         self.assertEqual(1, len(book.entries))
+
+    def test_find_entry_by_name(self):
+        book = PhoneBook()
+        book.add_entry('João', '(11) 1234 4321')
+
+        entry = book.find_by_name('João')
+
+        self.assertIsNotNone(entry)
+
+    def test_find_nonexistent_entry_by_name(self):
+        book = PhoneBook()
+        book.add_entry('João', '(11) 1234 4321')
+
+        entry = book.find_by_name('Maria')
+
+        self.assertIsNone(entry)

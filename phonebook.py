@@ -9,3 +9,10 @@ class PhoneBook():
         }
         
         self.entries.append(entry)
+
+    def find_by_name(self, name):
+        for entry in self.entries:
+            if entry['name'] == name:
+                return entry
+
+        return None
